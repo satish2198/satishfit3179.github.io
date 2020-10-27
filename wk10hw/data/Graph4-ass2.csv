@@ -1,4 +1,4 @@
-"Country/Region","Sum of Confirmed","Sum of Active","Sum of Deaths/100 Cases","Sum of Recovered/100 Cases"
+"Country/Region","Sum_of_Confirmed","Sum_of_Active","Sum_of_Deaths/100Cases","Sum_of_Recovered/100Cases"
 "Afghanistan","36263","9796","3.5","69.49"
 "Albania","4880","1991","2.95","56.25"
 "Algeria","27973","7973","4.16","67.34"
