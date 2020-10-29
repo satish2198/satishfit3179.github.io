@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "COVID-19 Tests/1M Population per WHO Region (as of August 2020)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/wk10hw/data/GRaph3-wordldometer%20(1)%20(1).csv"
+  },
+  "width": 700,
+  "height": 500,
+  "encoding": {
+    "x": {"field": "WHORegion", "axis": {"labelAngle": 0}, "type": "nominal"}
+  },
+  "layer": [
+    {
+      "encoding": {
+        "color": {"field": "WHORegion", "type": "nominal"},
+        "y": {"field": "SumofTests_per1M_pop", "type": "quantitative"}
+      },
+      "layer": [
+        {"mark": "bar"},
+        {"transform": [{"filter": {"selection": "hover"}}], "mark": "line"}
+      ]
+    },
+    {
+      "mark": "rule",
+      "encoding": {
+        "opacity": {
+          "condition": {"value": 0.9, "selection": "hover"},
+          "value": 0
+        },
+        "tooltip": [
+          {
+            "field": "SumofPopulation",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Total Population"
+          },
+          {
+            "field": "SumofTests_per1M_pop",
+            "type": "quantitative",
+            "title": "Total Tests per 1M people"
+          },
+          {
+            "field": "SumofTotalCases_per1M_pop",
+            "type": "quantitative",
+            "title": "Total Cases per 1M people"
+          }
+        ]
+      },
+      "selection": {
+        "hover": {
+          "type": "single",
+          "fields": ["WHORegion"],
+          "nearest": true,
+          "on": "mouseover",
+          "empty": "none",
+          "clear": "mouseout"
+        }
+      }
+    }
+  ],
+  "config": {}
+}

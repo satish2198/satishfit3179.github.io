@@ -1,0 +1,34 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Recovery Rate Statistics in Each Region (as of August 2020)",
+  "width": 600,
+  "height": 400,
+  "description": "A simple pie chart with labels.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/wk10hw/data/graph6-recvery.csv"
+  },
+  "encoding": {
+    "theta": {
+      "field": "Recovered/100Cases",
+      "type": "quantitative",
+      "stack": true
+    },
+    "color": {"field": "WHO Region", "type": "nominal"}
+  },
+  "layer": [
+    {"mark": {"type": "arc", "outerRadius": 130}},
+    {
+      "mark": {"type": "text", "radius": 180},
+      "encoding": {
+        "text": {"field": "WHO Region", "type": "nominal"},
+        "tooltip": [
+          {"field": "Sum of TotalRecovered", "type": "quantitative"},
+          {"field": "Sum of TotalCases", "type": "quantitative"},
+          {"field": "Recovered/100Cases", "type": "quantitative", "format": "1"}
+        ]
+      }
+    }
+  ],
+  "view": {"stroke": "black"},
+  "config": {}
+}

@@ -1,0 +1,125 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 700,
+  "height": 500,
+  "title": "Overall COVID-19 Outbreak by Country - Top 10 (as of August 2020)",
+  "description": "A bar graph showing the scores of the top 5 countries in the covid 19 pandemic. This shows an example of the window transform, for how the top K (5) can be filtered, and also how a rank can be computed for each country.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/wk10hw/data/Graph4-ass2-_2_.csv"
+  },
+  "params": [
+    {
+      "name": "WHORegion",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Eastern Mediterranean",
+          "Americas",
+          "Europe",
+          "Africa",
+          "South-East Asia",
+          "Western Pacific"
+        ],
+        "labels": [
+          "Show All",
+          "Eastern Mediterranean",
+          "Americas",
+          "Europe",
+          "Africa",
+          "South-East Asia",
+          "Western Pacific"
+        ],
+        "name": "WHO Region Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.Sum_of_Confirmed"},
+    {"filter": "WHORegion == null || datum.WHORegion ==WHORegion"},
+    {"window": [{"op": "count", "as": "rank"}], "ignorePeers": true},
+    {"filter": "(datum.rank <= 10)"}
+  ],
+  "encoding": {
+    "x": {
+      "field": "Sum_of_Confirmed",
+      "type": "quantitative",
+      "title": "Confirmed Cases"
+    },
+    "y": {
+      "field": "Country/Region",
+      "type": "nominal",
+      "sort": {
+        "field": "Sum_of_Confirmed",
+        "op": "count",
+        "order": "descending"
+      }
+    }
+  },
+  "layer": [
+    {
+      "selection": {
+        "continent_highlight": {
+          "type": "multi",
+          "fields": ["WHORegion"],
+          "bind": "legend"
+        }
+      },
+      "mark": "bar",
+      "encoding": {
+        "color": {
+          "field": "Country/Region",
+          "type": "nominal",
+          "title": "Countries"
+        },
+        "opacity": {
+          "condition": {"selection": "continent_highlight", "value": 1.3},
+          "value": 0.9
+        },
+        "tooltip": [
+          {"field": "Country/Region", "type": "nominal"},
+          {
+            "field": "Sum_of_Confirmed",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Total Confirmed Cases"
+          },
+          {
+            "field": "Sum_of_Active",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Total Active Cases"
+          },
+          {
+            "field": "Sum_of_Deaths/100Cases",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Total Deaths per 100 cases"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 15.5,
+        "fontStyle": "bold"
+      },
+      "encoding": {
+        "text": {"field": "Sum_of_Confirmed", "type": "quantitative"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country/Region'] == 'China'  || datum['Country/Region'] == 'India' || datum['Country/Region'] == 'Russia' || datum['Country/Region'] == 'South Africa' || datum['Country/Region'] == 'US'",
+            "value": 1
+          },
+          "value": 0
+        }
+      }
+    }
+  ],
+  "config": {}
+}

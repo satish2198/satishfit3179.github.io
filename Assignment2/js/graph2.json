@@ -1,0 +1,141 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 600,
+  "title": "COVID-19 Statistics per WHO Region (as of September 2020)",
+  "data": {
+    "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/wk10hw/data/COVID_SATISH.csv"
+  },
+  "params": [
+    {
+      "name": "WHORegion",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Eastern Mediterranean",
+          "Americas",
+          "Europe",
+          "Africa",
+          "South-East Asia",
+          "Western Pacific"
+        ],
+        "labels": [
+          "Show All",
+          "Eastern Mediterranean",
+          "Americas",
+          "Europe",
+          "Africa",
+          "South-East Asia",
+          "Western Pacific"
+        ],
+        "name": "Region Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.Confirmed > 0"},
+    {"filter": "datum.Recovered > 0"},
+    {"filter": "WHORegion == null || datum.WHORegion ==WHORegion"}
+  ],
+  "encoding": {
+    "x": {
+      "field": "Confirmed",
+      "type": "quantitative",
+      "title": "Confirmed Cases",
+      "axis": {"tickCount": 7},
+      "scale": {"type": "log", "domain": [1, 10000000]}
+    },
+    "y": {
+      "field": "Recovered",
+      "type": "quantitative",
+      "axis": {"tickCount": 6},
+      "scale": {"type": "log", "domain": [1, 10000000]}
+    }
+  },
+  "layer": [
+    {
+      "selection": {
+        "continent_highlight": {
+          "type": "multi",
+          "fields": ["WHORegion"],
+          "bind": "legend"
+        }
+      },
+      "mark": "circle",
+      "encoding": {
+        "size": {
+          "field": "Deaths/100 Cases",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [1, 5, 10, 15],
+            "range": [20, 150, 250, 350, 550]
+          },
+          "legend": {"format": ".1s"}
+        },
+        "color": {
+          "field": "WHORegion",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Eastern Mediterranean",
+              "Americas",
+              "Europe",
+              "Africa",
+              "South-East Asia",
+              "Western Pacific"
+            ],
+            "range": [
+              "#e41a1c",
+              "#984ea3",
+              "#ff7f00",
+              "#a6cee3",
+              "#377eb8",
+              "#a65628"
+            ]
+          }
+        },
+        "opacity": {
+          "condition": {"selection": "continent_highlight", "value": 0.8},
+          "value": 0.2
+        },
+        "tooltip": [
+          {"field": "Country/Region", "type": "nominal"},
+          {"field": "Confirmed", "type": "quantitative", "format": ","},
+          {"field": "Active", "type": "quantitative", "format": ","},
+          {"field": "Deaths", "type": "quantitative", "format": ","},
+          {"field": "Recovered", "type": "quantitative", "format": ","},
+          {
+            "field": "Recovered/100 Cases",
+            "type": "quantitative",
+            "format": ".2f"
+          },
+          {"field": "Deaths/100 Cases", "type": "quantitative", "format": ".2f"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Country/Region", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country/Region'] == 'China' || datum['Country/Region'] =='Singapore' || datum['Country/Region'] == 'Australia' || datum['Country/Region'] == 'New Zealand' || datum['Country/Region'] == 'Italy' || datum['Country/Region'] == 'Greenland' || datum['Country/Region'] == 'United States of America'",
+            "value": 1
+          },
+          "value": 0
+        }
+      }
+    }
+  ],
+  "config": {}
+}
