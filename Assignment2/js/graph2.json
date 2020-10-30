@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 500,
+  "width": 600,
   "height": 300,
   "title": "COVID-19 Statistics per WHO Region (as of September 2020)-test",
   "data": {
