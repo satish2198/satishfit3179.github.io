@@ -12,7 +12,7 @@
       "lookup": "properties.NAME",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/wk10hw/data/worldometer_data.csv"
+          "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/Assignment2/data/Worldometer_Data.csv"
         },
         "key": "Country/Region",
         "fields": ["ActiveCases", "Tot Cases/1M pop", "Population"]
