@@ -4,7 +4,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/wk10hw/data/GRaph3-wordldometer%20(1)%20(1).csv"
   },
-  "width": 600,
+  "width": 500,
   "height": 300,
   "encoding": {
     "x": {"field": "WHORegion", "axis": {"labelAngle": 0}, "type": "nominal"}
