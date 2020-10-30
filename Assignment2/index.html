@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Multiple Visualisations | An Example</title>
+  <title>Multiple Visualisations | SATISH KUMAR</title>
   <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@4"></script>
@@ -85,7 +85,7 @@
         </div>
         <div class="pure-u-1-3">
           <div class="description description-right">
-            <h2></h2>
+            <h2>2nd</h2>
             <p></p>
           </div>
         </div>
@@ -123,7 +123,24 @@
       
     </div>
     <!-- end pure grid group -->
-  
+   
+   <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-3">
+        <div class="description description-left">
+          <h2>This is the 5th section</h2>
+          <p>Using all three columns without merging. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. Egestas purus viverra accumsan in nisl.</p>
+        </div>
+      </div>
+      <div class="pure-u-1-3">
+        <div id="vis5"  class="vis-container"></div>
+      </div>
+     
+    
+    </div>
+    <!-- end pure grid group -->
+   
+ 
     <div class="pure-g">
       <div class="pure-u-1-1 small-font">
         <p>This visualisation is created by <a href="https://github.com/satish2198/satishkumarFIT3179/tree/master/Assignment2" target="_blank">Satish Kumar</a>. The datasource is <a href="#"" target="_blank">some data repository online</href>.</p>
@@ -138,6 +155,7 @@
   var specVis2= "./js/graph2.json";
   var specVis3="./js/graph3.json";
   var specVis4= "./js/graph4.json";
+  var specVis5= "./js/graph5.json";
 
   vegaEmbed('#vis1', specVis1, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -154,6 +172,11 @@
   vegaEmbed('#vis4', specVis4, {"actions": false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
+          
+  vegaEmbed('#vis4', specVis5, {"actions": false}).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+          
 </script>
 </body>
 </html>
