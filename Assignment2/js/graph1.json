@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "Active Covid-19 Cases and Total Cases/1M population per Country (as of August 2020) ",
+  "title": "Active Covid-19 Cases and Total Cases/1M population per Country (as of August 2020)-test ",
   "width": 500,
   "height": 300,
   "data": {
