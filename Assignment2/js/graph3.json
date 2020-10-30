@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "COVID-19 Tests/1M Population per WHO Region (as of August 2020)-test",
+  "title": "COVID-19 Tests/1M Population per WHO Region (as of August 2020)-testv.2",
   "data": {
     "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/wk10hw/data/GRaph3-wordldometer%20(1)%20(1).csv"
   },
