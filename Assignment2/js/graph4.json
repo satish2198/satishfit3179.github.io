@@ -1,26 +1,29 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 450,
-  "height": 300,
-  "title": "Monthly Death Confirmed per Region (as of August 2020)-testv3",
+  "width": 700,
+  "height": 500,
+  "title": "Monthly Death Confirmed per Region (as of August 2020)",
   "data": {
-    "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/wk10hw/data/graph5v2-_2_.csv"
+    "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/Assignment2/data/graph5.csv"
   },
+  
   "encoding": {
     "x": {
       "field": "Date",
       "type": "ordinal",
-      "title": "Month of the Year",
-      "axis": {"labelAngle": 0}
+      "title": "Month of the Year (2020)",
+      "timeUnit": "month",
+      "axis":{"labelAngle":0}
     },
     "y": {
       "field": "Sum_of_Deaths",
       "type": "quantitative",
       "axis": {"tickCount": 6},
       "scale": {"type": "sqrt"},
-      "title":"Total No of Deaths"
+      "title":"Total no of Deaths"
     }
   },
+
   "layer": [
     {
       "selection": {
@@ -30,17 +33,31 @@
           "bind": "legend"
         }
       },
-      "mark": {"type": "line", "point": true},
+
+      "mark": {
+        "type":"line",
+        "point":true
+      },
+
       "encoding": {
-        "color": {"field": "WHO_Region", "type": "nominal"},
+        
+        "color": {
+          "field": "WHO_Region",
+          "type": "nominal"
+        },
+
         "opacity": {
-          "condition": {"selection": "continent_highlight", "value": 1.5},
+          "condition": {
+          "selection": "continent_highlight", 
+          "value": 1.5},
           "value": 0.2
         },
+
         "tooltip": [
           {"field": "WHO_Region", "type": "nominal"},
           {"field": "Sum_of_Confirmed", "type": "quantitative"},
           {"field": "Sum_of_Deaths", "type": "quantitative"}
+      
         ]
       }
     },
@@ -54,22 +71,21 @@
         "fontStyle": "bold"
       },
       "encoding": {
-        "text": {"field": "Sum_of_Confirmed", "type": "quantitative"},
+        "text": {"field": "Sum_of_Deaths", "type": "quantitative"},
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['WHO_Region'] == 'Europe' || datum['WHO_Region'] == 'Americas'",
+            "test": " datum['WHO_Region'] == 'Europe' || datum['WHO_Region'] == 'Americags'",
             "value": 1
           },
           "value": 0
         },
         "tooltip": [
           {"field": "WHO_Region", "type": "nominal"},
-          {"field": "Sum_of_Confirmed", "type": "quantitative"},
+         {"field": "Sum_of_Confirmed", "type": "quantitative"},
           {"field": "Sum_of_Deaths", "type": "quantitative"}
         ]
       }
     }
-  ],
-  "config": {}
+  ]
 }
