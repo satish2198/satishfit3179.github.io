@@ -1,4 +1,4 @@
-"Country/Region","WHORegion","Sum_of_Confirmed","Sum_of_Active","Sum_of_Deaths/100Cases","Sum_of_Recovered/100Cases","Population"
+"Country/Region","WHORegion","SumofConfirmed","Sum_of_Active","Sum_of_Deaths/100Cases","Sum_of_Recovered/100Cases","Population"
 "US","Americas","4290259","2816444","3.45","30.9","331002651"
 "Brazil","Americas","2442375","508116","3.59","75.61","212559417"
 "India","South-East Asia","1480073","495499","2.26","64.26","1380004385"
