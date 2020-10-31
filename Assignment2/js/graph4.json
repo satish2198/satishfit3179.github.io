@@ -17,7 +17,8 @@
       "field": "Sum_of_Deaths",
       "type": "quantitative",
       "axis": {"tickCount": 6},
-      "scale": {"type": "sqrt"}
+      "scale": {"type": "sqrt"},
+      "title":"Total No of Deaths"
     }
   },
   "layer": [
