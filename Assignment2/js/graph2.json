@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 450,
-  "height": 450,
-  "title": "COVID-19 Statistics per WHO Region (as of September 2020)",
+  "height": 300,
+  "title": "Correlation Between Recovery and Deaths per 100 Cases",
   "data": {
     "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/Assignment2/data/COVID_SATISH.csv"
   },
@@ -34,23 +34,24 @@
     }
   ],
   "transform": [
-    {"filter": "datum.Confirmed > 0"},
-    {"filter": "datum.Recovered > 0"},
-    {"filter": "WHORegion == null || datum.WHORegion ==WHORegion"}
+    {"filter": "WHORegion == null||datum.WHORegion == WHORegion"},
+    {"window": [{"op": "count", "as": "rank"}], "ignorePeers": true},
+    {"filter": "(datum.rank <= 10)"}
+    
   ],
   "encoding": {
     "x": {
-      "field": "Confirmed",
+      "field": "Recovered/100 Cases",
       "type": "quantitative",
-      "title": "Confirmed Cases",
+      "title": "Recovered/100 Cases",
       "axis": {"tickCount": 7},
-      "scale": {"type": "log", "domain": [1, 10000000]}
+      "scale":{"type":"linear"}
     },
     "y": {
-      "field": "Active",
+      "field": "Deaths/100 Cases",
       "type": "quantitative",
       "axis": {"tickCount": 6},
-      "scale": {"type": "log", "domain": [1, 10000000]}
+      "scale":{"type":"linear"}
     }
   },
   "layer": [
@@ -120,7 +121,7 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Country/Region'] == 'China' || datum['Country/Region'] =='Barbados' || datum['Country/Region'] == 'Australia' || datum['Country/Region'] == 'New Zealand' || datum['Country/Region'] == 'Italy' || datum['Country/Region'] == 'Saudi Arabia' || datum['Country/Region'] == 'United States of America' || datum['Country/Region'] == 'Djibouti' || datum['Country/Region'] == 'Libya'|| datum['Country/Region'] == 'San Marino'|| datum['Country/Region'] == 'Burma'|| datum['Country/Region'] == ''|| datum['Country/Region'] == 'India'",
+            "test": "datum['Country/Region'] == 'Angola' || datum['Country/Region'] =='Andorra' || datum['Country/Region'] == 'Australia' || datum['Country/Region'] == 'New Zealand' || datum['Country/Region'] == 'Iran' || datum['Country/Region'] == 'Argentina' || datum['Country/Region'] == 'United States of America' || datum['Country/Region'] == 'Libya' || datum['Country/Region'] == 'Belarus'|| datum['Country/Region'] == 'Canada'|| datum['Country/Region'] == 'Chad'|| datum['Country/Region'] == 'Chile'|| datum['Country/Region'] == 'Cameroon'| datum['Country/Region'] == 'Belgium'| datum['Country/Region'] == 'Indonesia'| datum['Country/Region'] == 'Thailand'| datum['Country/Region'] == 'India'| datum['Country/Region'] == 'China'",
             "value": 1
           },
           "value": 0
