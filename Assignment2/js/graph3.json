@@ -1,59 +1,130 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "title": "COVID-19 Tests/1M Population per WHO Region (as of August 2020)-testv.4",
-  "data": {
-    "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/Assignment2/data/GRaph3-Worldometer.csv"
-  },
   "width": 450,
   "height": 300,
+  "title": "Correlation Between Recovery and Deaths per 100 Cases",
+  "data": {
+    "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/Assignment2/data/COVID_SATISH.csv"
+  },
+  "params": [
+    {
+      "name": "WHORegion",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Eastern Mediterranean",
+          "Americas",
+          "Europe",
+          "Africa",
+          "South-East Asia",
+          "Western Pacific"
+        ],
+        "labels": [
+          "Show All",
+          "Eastern Mediterranean",
+          "Americas",
+          "Europe",
+          "Africa",
+          "South-East Asia",
+          "Western Pacific"
+        ],
+        "name": "Region Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "WHORegion == null||datum.WHORegion == WHORegion"},
+    {"window": [{"op": "count", "as": "rank"}], "ignorePeers": true},
+    {"filter": "(datum.rank <= 10)"}
+    
+  ],
   "encoding": {
-    "x": {"field": "WHORegion", "axis": {"labelAngle": 0}, "type": "nominal"}
+    "x": {
+      "field": "Recovered/100 Cases",
+      "type": "quantitative",
+      "title": "Recovered/100 Cases",
+      "axis": {"tickCount": 7},
+      "scale":{"type":"linear"}
+    },
+    "y": {
+      "field": "Deaths/100 Cases",
+      "type": "quantitative",
+      "axis": {"tickCount": 6},
+      "scale":{"type":"linear"}
+    }
   },
   "layer": [
     {
+      
+      "mark": "circle",
       "encoding": {
-        "color": {"field": "WHORegion", "type": "nominal"},
-        "y": {"field": "SumofTests_per1M_pop", "type": "quantitative"}
-      },
-      "layer": [
-        {"mark": "bar"},
-        {"transform": [{"filter": {"selection": "hover"}}], "mark": "line"}
-      ]
+        "size": {
+          "field": "Deaths/100 Cases",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [1,5,10],
+            "range": [20, 150, 250, 350]
+          },
+          "legend": {"format": ".1s"}
+        },
+        "color": {
+          "field": "WHORegion",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Eastern Mediterranean",
+              "Americas",
+              "Europe",
+              "Africa",
+              "South-East Asia",
+              "Western Pacific"
+            ],
+            "range": [
+              "#e41a1c",
+              "#984ea3",
+              "#ff7f00",
+              "#a6cee3",
+              "#377eb8",
+              "#a65628"
+            ]
+          }
+        },
+        
+        "tooltip": [
+          {"field": "Country/Region", "type": "nominal"},
+          {"field": "Confirmed", "type": "quantitative", "format": ","},
+          {"field": "Active", "type": "quantitative", "format": ","},
+          {"field": "Deaths", "type": "quantitative", "format": ","},
+          {"field": "Recovered", "type": "quantitative", "format": ","},
+          {
+            "field": "Recovered/100 Cases",
+            "type": "quantitative",
+            "format": ".2f"
+          },
+          {"field": "Deaths/100 Cases", "type": "quantitative", "format": ".2f"}
+        ]
+      }
     },
     {
-      "mark": "rule",
-      "encoding": {
-        "opacity": {
-          "condition": {"value": 0.9, "selection": "hover"},
-          "value": 0
-        },
-        "tooltip": [
-          {
-            "field": "SumofPopulation",
-            "type": "quantitative",
-            "format": ",",
-            "title": "Total Population"
-          },
-          {
-            "field": "SumofTests_per1M_pop",
-            "type": "quantitative",
-            "title": "Total Tests per 1M people"
-          },
-          {
-            "field": "SumofTotalCases_per1M_pop",
-            "type": "quantitative",
-            "title": "Total Cases per 1M people"
-          }
-        ]
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
       },
-      "selection": {
-        "hover": {
-          "type": "single",
-          "fields": ["WHORegion"],
-          "nearest": true,
-          "on": "mouseover",
-          "empty": "none",
-          "clear": "mouseout"
+      "encoding": {
+        "text": {"field": "Country/Region", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country/Region'] == 'Angola' || datum['Country/Region'] =='Andorra' || datum['Country/Region'] == 'Australia' || datum['Country/Region'] == 'New Zealand' || datum['Country/Region'] == 'Iran' || datum['Country/Region'] == 'Argentina' || datum['Country/Region'] == 'United States of America' || datum['Country/Region'] == 'Libya' || datum['Country/Region'] == 'Belarus'|| datum['Country/Region'] == 'Canada'|| datum['Country/Region'] == 'Chad'|| datum['Country/Region'] == 'Chile'|| datum['Country/Region'] == 'Cameroon'| datum['Country/Region'] == 'Belgium'| datum['Country/Region'] == 'Indonesia'| datum['Country/Region'] == 'Thailand'| datum['Country/Region'] == 'India'| datum['Country/Region'] == 'China'",
+            "value": 1
+          },
+          "value": 0
         }
       }
     }
