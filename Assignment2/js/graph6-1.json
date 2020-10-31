@@ -15,18 +15,22 @@
           "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/wk10hw/data/COVID_SATISH.csv"
         },
         "key": "Country/Region",
-        "fields": ["Recovered/100 Cases", "Recovered", "Confirmed"]
+        "fields": ["Recovered/100 Cases","Recovered","Confirmed"]
       }
     }
   ],
-  "projection": {"type": "equirectangular"},
+  "projection": {"type": "equalEarth","center":[15,15],"scale":185},
+
   "mark": {"type": "geoshape"},
   "encoding": {
-    "color": {"field": "Recovered/100 Cases", "type": "quantitative"},
+    "color": {
+      "field": "Recovered/100 Cases",
+      "type": "quantitative"
+    },
     "tooltip": [
       {"field": "properties.NAME", "type": "nominal", "title": "Country"},
       {"field": "Recovered/100 Cases", "type": "quantitative"},
-      {"field": "Recovered", "type": "quantitative", "format": "1"},
+      {"field": "Recovered", "type": "quantitative", "format":"1"},
       {"field": "Confirmed", "type": "quantitative"}
     ]
   },
