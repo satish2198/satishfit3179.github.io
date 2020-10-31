@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": "Recovery Rate per 100 Cases in Each Country (as of August 2020) ",
-  "width": 800,
-  "height": 600,
+  "width": 450,
+  "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/wk9hw/js/ne_110m_admin_0_countries.topojson",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
