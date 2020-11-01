@@ -42,7 +42,7 @@
       "encoding": {
         
         "color": {
-          "field": "WHO_Region",
+          "field": "WHORegion",
           "type": "nominal"
         },
 
@@ -54,7 +54,7 @@
         },
 
         "tooltip": [
-          {"field": "WHO_Region", "type": "nominal"},
+          {"field": "WHORegion", "type": "nominal"},
           {"field": "Sum_of_Confirmed", "type": "quantitative"},
           {"field": "Sum_of_Deaths", "type": "quantitative"}
       
@@ -75,13 +75,13 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": " datum['WHO_Region'] == 'Europe' || datum['WHO_Region'] == 'Americags'",
+            "test": " datum['WHORegion'] == 'Eurodpe' || datum['WHORegion'] == 'Americags'",
             "value": 1
           },
           "value": 0
         },
         "tooltip": [
-          {"field": "WHO_Region", "type": "nominal"},
+          {"field": "WHORegion", "type": "nominal"},
          {"field": "Sum_of_Confirmed", "type": "quantitative"},
           {"field": "Sum_of_Deaths", "type": "quantitative"}
         ]
