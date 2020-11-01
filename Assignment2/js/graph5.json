@@ -7,6 +7,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/wk10hw/data/Graph4-ass2-_2_.csv"
   },
+  "background":"Bisque",
   "params": [
     {
       "name": "WHORegion",
