@@ -5,7 +5,7 @@
     "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/Assignment2/data/GRaph3-Worldometer.csv"
   },
   "background":"Bisque",
-  "width": 500,
+  "width": 480,
   "height": 300,
   "encoding": {
     "x": {"field": "WHORegion", "axis": {"labelAngle": 0}, "type": "nominal"}
