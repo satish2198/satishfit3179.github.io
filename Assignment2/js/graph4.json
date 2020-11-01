@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 450,
+  "width": 430,
   "height": 300,
   "title": "Monthly Death Confirmed per Region (as of August 2020)",
   "data": {
