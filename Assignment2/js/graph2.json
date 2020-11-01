@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 550,
+  "width": 500,
   "height": 300,
   "title": "Correlation Between Recovery and Deaths per 100 Cases",
   "data": {
