@@ -19,7 +19,7 @@
       }
     }
   ],
-  "projection": {"type": "equalEarth","center":[15,15],"scale":185},
+  "projection": {"type": "equalEarth","center":[20,10],"scale":95},
 
   "mark": {"type": "geoshape"},
   "encoding": {
