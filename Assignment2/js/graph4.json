@@ -82,8 +82,8 @@
         },
         "tooltip": [
           {"field": "WHORegion", "type": "nominal"},
-         {"field": "Sum_of_Confirmed", "type": "quantitative"},
-          {"field": "Sum_of_Deaths", "type": "quantitative"}
+          {"field": "Sum_of_Confirmed", "type": "quantitative","title":"Total Confirmed"},
+          {"field": "Sum_of_Deaths", "type": "quantitative","title":"Total Deaths"}
         ]
       }
     }
