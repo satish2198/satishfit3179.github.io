@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 450,
   "height": 300,
-  "title": "Overall COVID-19 Outbreak by Country - Top 10 (as of August 2020)",
+  "title": "Overall COVID-19 Outbreak by Country - Top 10 ",
   "description": "A bar graph showing the scores of the top 5 countries in the covid 19 pandemic. This shows an example of the window transform, for how the top K (5) can be filtered, and also how a rank can be computed for each country.",
   "data": {
     "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/Assignment2/data/Graph4-final-v2.csv"
@@ -98,16 +98,16 @@
         "type": "text",
         "align": "right",
         "baseline": "middle",
-        "dx": -12,
+        "dx": -5,
         "fontSize": 13.5,
         "fontStyle": "bold"
       },
       "encoding": {
-        "text": {"field": "SumofConfirmed", "type": "quantitative"},
+        "text": {"field": "Sum_of_Deaths/100Cases", "type": "quantitative"},
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Country/Region'] == 'China'  || datum['Country/Region'] == 'India' || datum['Country/Region'] == 'Russia' || datum['Country/Region'] == 'South Africsa' || datum['Country/Region'] == 'US'",
+            "test": "datum['Country/Region'] == 'Chad'  || datum['Country/Region'] == 'Sweden' || datum['Country/Region'] == 'Russia' || datum['Country/Region'] == 'Libya' || datum['Country/Region'] == 'Canada'|| datum['Country/Region'] == 'Brazil'|| datum['Country/Region'] == 'North Macedonia'|| datum['Country/Region'] == 'Zambia'|| datum['Country/Region'] == 'Indonesia'|| datum['Country/Region'] == 'Australia'|| datum['Country/Region'] == 'China'|| datum['Country/Region'] == 'Sri Lanka'",
             "value": 1
           },
           "value": 0
