@@ -5,9 +5,9 @@
   "title": "Overall COVID-19 Outbreak by Country - Top 10 (as of August 2020)",
   "description": "A bar graph showing the scores of the top 5 countries in the covid 19 pandemic. This shows an example of the window transform, for how the top K (5) can be filtered, and also how a rank can be computed for each country.",
   "data": {
-    "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/wk10hw/data/Graph4-ass2-_2_.csv"
+    "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/Assignment2/data/Graph4-final-v2.csv"
   },
-  "background":"Bisque",
+  "background": "Bisque",
   "params": [
     {
       "name": "WHORegion",
@@ -23,7 +23,7 @@
           "Western Pacific"
         ],
         "labels": [
-          "Show All",
+          "Select All",
           "Eastern Mediterranean",
           "Americas",
           "Europe",
@@ -36,25 +36,28 @@
     }
   ],
   "transform": [
-    {"filter": "datum.Sum_of_Confirmed"},
-    {"filter": "WHORegion == null || datum.WHORegion == WHORegion"},
-    {"window": [{"op": "count", "as": "rank"}], "ignorePeers": true},
+    {"filter": "WHORegion == null ||  datum.WHORegion == WHORegion"},
+    {"window": 
+    
+    [{
+        "op": "count",
+        "as": "rank"
+      }],
+      "sort": [{ "field": "Sum_of_Deaths/100Cases", "order": "descending" }]
+    }, 
     {"filter": "(datum.rank <= 10)"}
+    
   ],
+
   "encoding": {
     "x": {
-      "field": "Sum_of_Confirmed",
-      "type": "quantitative",
-      "title": "Confirmed Cases"
+        "field": "Sum_of_Deaths/100Cases",
+        "type": "quantitative"
     },
     "y": {
-      "field": "Country/Region",
-      "type": "nominal",
-      "sort": {
-        "field": "Sum_of_Confirmed",
-        "op": "count",
-        "order": "descending"
-      }
+        "field": "Country/Region",
+        "type": "nominal",
+        "sort": {"field": "Sum_of_Deaths/100Cases", "op": "average", "order":"descending"}
     }
   },
   "layer": [
@@ -100,7 +103,7 @@
         "fontStyle": "bold"
       },
       "encoding": {
-        "text": {"field": "Sum_of_Confirmed", "type": "quantitative"},
+        "text": {"field": "SumofConfirmed", "type": "quantitative"},
         "color": {"value": "black"},
         "opacity": {
           "condition": {
