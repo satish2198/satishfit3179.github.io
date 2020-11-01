@@ -14,7 +14,7 @@
     {
       "encoding": {
         "color": {"field": "WHORegion", "type": "nominal"},
-        "y": {"field": "SumofTests_per1M_pop", "type": "quantitative","title":"Tests Per 1M Pop}
+        "y": {"field": "SumofTests_per1M_pop", "type": "quantitative","title":"Tests Per 1M Pop"}
       },
       "layer": [
         {"mark": "bar"},
