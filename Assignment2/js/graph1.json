@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "title": "Active Covid-19 Cases and Total Cases/1M population per Country (as of August 2020) ",
   "background":"Bisque",
-  "width": 450,
+  "width": 550,
   "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/wk9hw/js/ne_110m_admin_0_countries.topojson",
