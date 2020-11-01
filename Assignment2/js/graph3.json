@@ -4,6 +4,7 @@
   "data": {
     "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/Assignment2/data/GRaph3-Worldometer.csv"
   },
+  "background":"Bisque",
   "width": 450,
   "height": 300,
   "encoding": {
