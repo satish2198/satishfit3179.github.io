@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 430,
   "height": 300,
-  "title": "Monthly Death Confirmed per Region (as of August 2020)",
+  "title": "Monthly Death Confirmed per Region",
   "data": {
     "url": "https://raw.githubusercontent.com/satish2198/satishkumarFIT3179/master/Assignment2/data/graph5.csv"
   },
@@ -55,8 +55,8 @@
 
         "tooltip": [
           {"field": "WHORegion", "type": "nominal"},
-          {"field": "Sum_of_Confirmed", "type": "quantitative"},
-          {"field": "Sum_of_Deaths", "type": "quantitative"}
+          {"field": "Sum_of_Confirmed", "type": "quantitative","title":"Total Confirmed"},
+          {"field": "Sum_of_Deaths", "type": "quantitative","title":"Total Deaths"}
       
         ]
       }
