@@ -89,6 +89,11 @@
             "type": "quantitative",
             "format": ",",
             "title": "Total Deaths per 100 cases"
+          },
+          {
+            "field": "WHORegion",
+            "type": "nominal",
+            "title": "WHORegion"
           }
         ]
       }
