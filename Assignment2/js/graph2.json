@@ -122,7 +122,7 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Country/Region'] == 'Angola' || datum['Country/Region'] =='Andorra' || datum['Country/Region'] == 'Australia' || datum['Country/Region'] == 'New Zealand' || datum['Country/Region'] == 'Iran' || datum['Country/Region'] == 'Argentina' || datum['Country/Region'] == 'United States of America' || datum['Country/Region'] == 'Libya' || datum['Country/Region'] == 'Belarus'|| datum['Country/Region'] == 'Canacda'|| datum['Country/Region'] == 'Chad'|| datum['Country/Region'] == 'Chile'|| datum['Country/Region'] == 'Cameroon'| datum['Country/Region'] == 'Belgium'| datum['Country/Region'] == 'Indonesia'| datum['Country/Region'] == 'Thailand'| datum['Country/Region'] == 'India'| datum['Country/Region'] == 'China'",
+            "test": "datum['Country/Region'] == 'Angola' || datum['Country/Region'] =='Andorra' || datum['Country/Region'] == 'Australia' || datum['Country/Region'] == 'New Zealand' || datum['Country/Region'] == 'Iran' || datum['Country/Region'] == 'Argentina' || datum['Country/Region'] == 'United States of America' || datum['Country/Region'] == 'Libya' || datum['Country/Region'] == 'Belarus'|| datum['Country/Region'] == 'Canada'|| datum['Country/Region'] == 'Chad'|| datum['Country/Region'] == 'Chile'|| datum['Country/Region'] == 'Cameroon'| datum['Country/Region'] == 'Belgium'| datum['Country/Region'] == 'Indonesia'| datum['Country/Region'] == 'Thailand'| datum['Country/Region'] == 'India'| datum['Country/Region'] == 'China'",
             "value": 1
           },
           "value": 0
