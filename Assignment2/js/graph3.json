@@ -38,12 +38,12 @@
           {
             "field": "SumofTests_per1M_pop",
             "type": "quantitative",
-            "title": "Total Tests per 1M people"
+            "title": "Total Tests per 1M people","format":","
           },
           {
             "field": "SumofTotalCases_per1M_pop",
             "type": "quantitative",
-            "title": "Total Cases per 1M people"
+            "title": "Total Cases per 1M people","format":","
           }
         ]
       },
