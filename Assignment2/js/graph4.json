@@ -65,18 +65,20 @@
       "mark": {
         "type": "text",
         "align": "right",
-        "baseline": "middle",
-        "dx": 0,
-        "fontSize": 8.5,
-        "fontStyle": "bold"
+        "baseline": "alphabetic",
+        "dx": 10,
+        "fontSize": 15.5,
+        "fontStyle": "italic"
       },
       "encoding": {
         "text": {"field": "Sum_of_Deaths", "type": "quantitative"},
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": " datum['WHORegion'] == 'Eurodpe' || datum['WHORegion'] == 'Americags'",
+            "test": " datum['WHORegion'] == 'Americas'&  datum['Date'] == '1595347200000'",
             "value": 1
+            
+            
           },
           "value": 0
         },
