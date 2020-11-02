@@ -112,7 +112,7 @@
         "color": {"value": "black"},
         "opacity": {
           "condition": {
-            "test": "datum['Country/Region'] == 'Chad'  || datum['Country/Region'] == 'Sweden' || datum['Country/Region'] == 'Russia' || datum['Country/Region'] == 'Libya' || datum['Country/Region'] == 'Yemen'|| datum['Country/Region'] == 'Brazil'|| datum['Country/Region'] == 'North Macedonia'|| datum['Country/Region'] == 'Zambia'|| datum['Country/Region'] == 'Indonesia'|| datum['Country/Region'] == 'Australia'|| datum['Country/Region'] == 'China'|| datum['Country/Region'] == 'Sri Lanka'",
+            "test": "datum['Country/Region'] == 'Chad'  || datum['Country/Region'] == 'San Marino' || datum['Country/Region'] == 'Russia' || datum['Country/Region'] == 'Libya' || datum['Country/Region'] == 'Yemen'|| datum['Country/Region'] == 'Brazil'|| datum['Country/Region'] == 'North Macedonia'|| datum['Country/Region'] == 'Zambia'|| datum['Country/Region'] == 'Indonesia'|| datum['Country/Region'] == 'Australia'|| datum['Country/Region'] == 'China'|| datum['Country/Region'] == 'Sri Lanka'",
             "value": 1
           },
           "value": 0
